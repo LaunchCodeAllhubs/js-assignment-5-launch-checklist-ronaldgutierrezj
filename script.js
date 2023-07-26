@@ -5,14 +5,15 @@ window.addEventListener("load", function() {
     let form = document.querySelector("form");
     form.addEventListener("submit", function(event){
 
-        const pilotNameInput = document.getElementById("pilotName");
-        const copilotNameInput = document.getElementsByName("copilotName");
-        const fuelLevelInput = document.getElementsByName("fuelLevel");
-        const cargoMassInput = document.getElementsByName("cargoMass");
-        
-        if(pilotNameInput.value === '' || copilotNameInput.value === '' || fuelLevelInput.value === '' || cargoMassInput === ''){
-            alert("all fields are required")
+        let pilotNameInput = document.getElementById("pilotName");
+        let copilotNameInput = document.querySelector("input[name=copilotName]");
+        let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
+        let cargoMassInput = document.querySelector("input[name=cargoMass]");
+
+        if(pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput === "" ){
+            alert("all fields are required");
             event.preventDefault();
+
         }
         
     })
