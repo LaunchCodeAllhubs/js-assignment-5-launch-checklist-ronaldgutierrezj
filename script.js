@@ -32,7 +32,7 @@ window.addEventListener("load", function() {
        let planet = pickPlanet(listedPlanets);
 
        const divPlanet = document.getElementById("missionTarget");
-       divPlanet.innerHTML = addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.imagegit)
+       divPlanet.innerHTML = addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image)
 
     })
    
