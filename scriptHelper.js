@@ -28,57 +28,51 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    
+
+    const pilotStatus = document.getElementById("pilotStatus")
+    const copilotStatus = document.getElementById("copilotStatus")
+    const fuelStatus = document.getElementById("fuelStatus")
+    const cargotStatus = document.getElementById("cargoStatus")
+
     let h2 = document.getElementById("launchStatus");
     list.style.visibility = "visible";
     
+    pilotStatus.textContent = `Pilot ${pilot} is ready for launch`
+    copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`
 
     if (fuelLevel < 10000 && cargoLevel > 10000){
         h2.textContent = "Shuttle Not Ready for Launch";
         h2.style.color = "rgb(199, 37, 78)";
-        list.innerHTML = `
-            <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too heavy for launch</li>
-            </ol>
-            `
-        console.log(list)
+        fuelStatus.textContent = "Fuel level too low for launch";
+        fuelStatus.style.color="red"
+        cargotStatus.textContent = "Cargo mass too heavy for launch";
+        cargotStatus.style.color="red"
+        
         
     } else if(fuelLevel < 10000){
         h2.textContent = "Shuttle Not Ready for Launch";
         h2.style.color = "rgb(199, 37, 78)";
-        list.innerHTML = `
-            <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
-            </ol>
-            `
+        fuelStatus.textContent = "Fuel level too low for launch";
+        fuelStatus.style.color="red"
+        cargotStatus.textContent = "Cargo mass low enough for launch";
+        cargotStatus.style.color="black"
+        
     } else if(cargoLevel > 10000){
         h2.textContent = "Shuttle Not Ready for Launch";
         h2.style.color = "rgb(199, 37, 78)";
-        list.innerHTML = `
-            <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too heavy for launch</li>
-            </ol>
-            `
+        fuelStatus.textContent = "Fuel level high enough for launch";
+        fuelStatus.style.color="black"
+        cargotStatus.textContent = "Cargo mass too heavy for launch";
+        cargotStatus.style.color="red"
+        
     } else {
         h2.textContent = "Shuttle is Ready for Launch";
         h2.style.color = "rgb(65, 159, 106)";
-        list.innerHTML = `
-            <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilot} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilot} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
-            </ol>
-            `
+        fuelStatus.textContent = "Fuel level high enough for launch";
+        fuelStatus.style.color="black"
+        cargotStatus.textContent = "Cargo mass low enough for launch";
+        cargotStatus.style.color="black"
+        
     }
    
         

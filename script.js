@@ -22,31 +22,25 @@ window.addEventListener("load", function() {
             cargoMassInput.value === "" )
             {
                 alert("all fields are required");
-                event.preventDefault();
-        }  else {
-                if (validateInput(pilotNameInput.value) != "Not a Number" ||    
-                    validateInput(copilotNameInput.value) != "Not a Number" || 
-                    validateInput(fuelLevelInput.value) != "Is a Number" || 
-                    validateInput(cargoMassInput.value) != "Is a Number") 
-                    {
-                        alert("Make sure to enter a valid information for each field");
-                        event.preventDefault();
-                    } else {
-                        formSubmission(document,list, pilotNameInput.value, copilotNameInput.value, fuelLevelInput.value,cargoMassInput.value)
-                        event.preventDefault();
+                
+            }  else {
+                    if (validateInput(pilotNameInput.value) != "Not a Number" ||    
+                        validateInput(copilotNameInput.value) != "Not a Number" || 
+                        validateInput(fuelLevelInput.value) != "Is a Number" || 
+                        validateInput(cargoMassInput.value) != "Is a Number") 
+                        {
+                            alert("Make sure to enter a valid information for each field");
+                        
+                        } else {
+                            formSubmission(document,list, pilotNameInput.value, copilotNameInput.value, fuelLevelInput.value,cargoMassInput.value)
 
+                        }
+                
                     }
-                    
-            
-        }
         
+        event.preventDefault();
 
-        
-        
-        
-
-
-    })
+    });
 
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -59,7 +53,7 @@ window.addEventListener("load", function() {
         // Below this comment call the appropriate helper functions to pick a planet from the list of planets and add that information to your destination.
        let planet = pickPlanet(listedPlanets);
 
-       addDestinationInfo(window.document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image)
+       addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image)
 
     })
    
